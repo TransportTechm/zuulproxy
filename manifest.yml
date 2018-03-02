@@ -1,0 +1,6 @@
+---
+applications:
+  - name: zuulgatewayP
+    buildpack: https://github.com/cloudfoundry/java-buildpack.git
+    routes:
+    - route: zuulgatewayp.cfapps.io

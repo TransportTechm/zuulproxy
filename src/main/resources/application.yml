@@ -1,0 +1,49 @@
+info:
+  component: Edge Server
+  
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+zuul:
+  prefix: /api
+  routes:
+    customer: 
+      path: /customer/**
+      serviceId: customerservice          
+    transport:
+      path: /transport/**
+      serviceId: TransportServiceP
+    vendor:
+      path: /vendor/**
+      serviceId: VendorServiceP
+            
+ribbon:
+  eureka:
+    enabled: true
+
+eureka:
+  client:
+    registerWithEureka: false
+      
+server:
+  port: 8765
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: DEBUG
+    
+security:
+  basic:
+    enabled: false
+  ignored: /**
+  
+management:
+  security:
+    enabled: false
+  
